@@ -1,6 +1,5 @@
 const http = require('http');
 const axios = require('axios');
-const cors = require('cors');
 
 const app = http.createServer((req, res) => {
     if (req.method === 'POST' && req.url === '/webhook') {
@@ -21,7 +20,5 @@ const app = http.createServer((req, res) => {
         });
     }
 });
-app.use(cors());
 server.listen(80);
-server.listen(443);
 console.log('Server running on port 80 and 443');
