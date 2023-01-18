@@ -1,20 +1,25 @@
-const express = require('express');
+const http = require('http');
 const axios = require('axios');
 
-const app = express();
-
-app.use(express.json());
-
-app.post('/webhook', (req, res) => {
-  axios.post('https://flooty-coins.com/api/api-v2.php', req.body)
-    .then(response => {
-      res.send(response.data);
-    })
-    .catch(error => {
-      res.status(500).send(error);
-    });
+const server = http.createServer((req, res) => {
+    if (req.method === 'POST' && req.url === '/webhook') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', () => {
+            axios.post('https://flooty-coins.com/api/api-v2.php', JSON.parse(body))
+                .then(response => {
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify(response.data));
+                })
+                .catch(error => {
+                    res.writeHead(500, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify(error));
+                });
+        });
+    }
 });
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
-});
+server.listen(8443);
+console.log('Server running on port 8443');
