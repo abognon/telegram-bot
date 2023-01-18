@@ -22,5 +22,6 @@ const app = http.createServer((req, res) => {
     }
 });
 app.use(cors());
-server.listen(8443);
-console.log('Server running on port 8443');
+server.listen(80);
+server.listen(443);
+console.log('Server running on port 80 and 443');
