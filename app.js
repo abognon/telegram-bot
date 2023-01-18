@@ -1,7 +1,8 @@
 const http = require('http');
 const axios = require('axios');
+const cors = require('cors');
 
-const server = http.createServer((req, res) => {
+const app = http.createServer((req, res) => {
     if (req.method === 'POST' && req.url === '/webhook') {
         let body = '';
         req.on('data', chunk => {
@@ -20,6 +21,6 @@ const server = http.createServer((req, res) => {
         });
     }
 });
-
+app.use(cors());
 server.listen(8443);
 console.log('Server running on port 8443');

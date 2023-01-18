@@ -1,11 +1,11 @@
 {
-    "name": "TG-Webhook",
+    "name": "your-app-name",
     "version": "1.0.0",
     "description": "A sample Node.js app for relaying Telegram webhooks to a PHP script",
     "main": "app.js",
     "dependencies": {
-      "axios": "^0.22.0",
-      "http": "0.0.1"
+    "axios": "^0.22.0",
+    "cors": "^2.8.5"
     },
     "devDependencies": {},
     "scripts": {
