@@ -4,7 +4,7 @@
     "description": "A sample Node.js app for relaying Telegram webhooks to a PHP script",
     "main": "app.js",
     "dependencies": {
-    "axios": "^0.22.0",
+    "axios": "^0.22.0"
     },
     "devDependencies": {},
     "scripts": {
