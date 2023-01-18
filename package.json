@@ -1,0 +1,17 @@
+{
+    "name": "Bot-tras",
+    "version": "1.0.0",
+    "description": "A sample Node.js app for relaying Telegram webhooks to a PHP script",
+    "main": "app.js",
+    "dependencies": {
+      "axios": "^0.21.0",
+      "express": "^4.17.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+      "start": "node app.js"
+    },
+    "author": "Ulrich",
+    "license": "MIT"
+  }
+  
